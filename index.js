@@ -4,6 +4,7 @@ const data = require('./data.json');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// GET Route to fetch all Recipes
 app.get('/recipes', (req, res) => {
     const obj = {};
     obj.recipeNames = new Array();
@@ -15,6 +16,7 @@ app.get('/recipes', (req, res) => {
     res.send(obj);
 });
 
+// GET Route to fetch a single Recipe
 app.get('/recipes/details/:recipe', (req, res) => {
     const obj = {};
     obj.details = new Array();
@@ -33,5 +35,8 @@ app.get('/recipes/details/:recipe', (req, res) => {
     }
     
 });
+
+// POST Route to add new Recipe
+
 
 app.listen(PORT, () => console.log(`Running on ${PORT}...`));
