@@ -46,23 +46,6 @@
         "Add tea leaves/tea bags, chai masala; mix and steep for 3-4 minutes",
         "Remove mixture from heat; strain and enjoy"
       ]
-    },
-    {
-      "name": "burrito",
-      "ingredients": [
-        "tortilla",
-        "rice",
-        "beans",
-        "meat protein",
-        "salsa"
-      ],
-      "instructions": [
-        "cook rice, beans, and meat protein",
-        "warm up tortilla",
-        "place rice, beans, and protein inside of tortilla",
-        "place salsa on top",
-        "fold tortilla to  make burrito"
-      ]
     }
   ]
 }

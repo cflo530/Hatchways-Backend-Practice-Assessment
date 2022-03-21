@@ -61,4 +61,31 @@ app.post('/recipes', (req, res) => {
 
 });
 
+// Put Route to update single Recipe
+app.put('/recipes/:recipe', (req, res) => {
+    let updatedRecipe = req.body;
+    let recipe = data.recipes.find(index => index.name === req.params.recipe);
+
+    if (recipe) {
+        recipe.name = updatedRecipe.name;
+        recipe.ingredients = updatedRecipe.ingredients;
+        recipe.instructions = updatedRecipe.instructions;
+
+        let indexId = data.recipes.indexOf(recipe);
+        data.recipes[indexId] = recipe;
+        let temp = JSON.stringify(data, null, 2);
+
+        fs.writeFile('data.json', temp, (err) => {
+            if(err){
+                return res.status(500).json({ message: err });
+            }
+        });
+
+        return res.status(204).json({ message: "Updated Recipe" });
+
+    } else {
+        return res.status(404).json({ error: "Recipe does not exist" });
+    }
+});
+
 app.listen(PORT, () => console.log(`Running on ${PORT}...`));
